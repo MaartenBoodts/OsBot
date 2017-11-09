@@ -1,0 +1,67 @@
+AA TEXT
+layer ROUNDRECT
+550
+206
+183
+256
+10
+10
+250, 10, 14, 96
+0, 0, 0, 255
+1
+layer STRING
+555
+240
+RandomIncSudokuSolver
+42, 10, 14, 233
+Candara
+16
+1
+layer STRING
+555
+275
+Version:
+42, 10, 14, 233
+Candara
+16
+0
+layer STRING
+555
+310
+Runtime:
+42, 10, 14, 233
+Candara
+16
+0
+layer STRING
+555
+345
+Status:
+42, 10, 14, 233
+Candara
+16
+0
+layer STRING
+555
+380
+Solved:
+42, 10, 14, 233
+Candara
+16
+0
+layer STRING
+555
+415
+Profit:
+42, 10, 14, 233
+Candara
+16
+0
+layer STRING
+575
+443
+Made by RandomInc for OsBot
+0, 0, 0, 255
+Candara
+10
+0
