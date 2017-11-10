@@ -19,7 +19,7 @@ public class InGamePaint {
 
     private final Font font1 = new Font("Candara", Font.BOLD, 16);
     private final Font font2 = new Font("Candara", Font.PLAIN, 16);
-    private final Font font3 = new Font("Candara", Font.PLAIN, 10);
+    private final Font font3 = new Font("Candara", Font.PLAIN, 12);
 
     private final RandomIncSudokuSolver script;
 
@@ -75,7 +75,7 @@ public class InGamePaint {
         g.drawString("Profit: " + BasicInformation.profit + " (" + profitHr + "/hr)", 555, 415);
         g.setFont(font3);
         g.setColor(color2);
-        g.drawString("Made by RandomInc for OsBot", 575, 443);
+        g.drawString("Made by RandomInc for OsBot", 572, 443);
     }
 
     private String formatTimeToHMS(long timeToFormat) {

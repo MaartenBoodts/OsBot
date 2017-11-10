@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
-@ScriptManifest(name = "RandomIncSudokuSolver", author = "RandomInc", version = 1.0, info = "Solves the sudoku in the Rogue Trader minigame and buys runes", logo = "https://i.imgur.com/ZzpEuXV.png")
+@ScriptManifest(name = "RandomIncSudokuSolver", author = "RandomInc", version = 1.01, info = "Solves the sudoku in the Rogue Trader minigame and buys runes", logo = "https://i.imgur.com/ZzpEuXV.png")
 
 public class RandomIncSudokuSolver extends Script {
 
@@ -35,7 +35,7 @@ public class RandomIncSudokuSolver extends Script {
 
         setPriceRunes();
 
-        BasicInformation.version = "1.0";
+        BasicInformation.version = "1.01";
         BasicInformation.startTime = System.currentTimeMillis();
         BasicInformation.status = "Initializing script";
 
@@ -55,7 +55,7 @@ public class RandomIncSudokuSolver extends Script {
             tasks.forEach(Task::run);
         }
 
-        return ThreadLocalRandom.current().nextInt(100, 215);
+        return ThreadLocalRandom.current().nextInt(100, 250);
     }
 
     @Override

@@ -97,7 +97,7 @@ public class SolveSudoku extends Task {
                             tileWidget.interact("Ok");
 
                             //Sleep until we detect the rune with minimum sleep
-                            Sleep.sleepUntil(() -> getRuneFromWidget(tileWidget).equals(rune), maxSleepTime * 2, ThreadLocalRandom.current().nextInt(minSleepTime, maxSleepTime + 1));
+                            Sleep.sleepUntil(() -> getRuneFromWidget(tileWidget).equals(rune), maxSleepTime + 1, ThreadLocalRandom.current().nextInt(minSleepTime, maxSleepTime + 1));
                         }
                     }
                 }
@@ -142,6 +142,7 @@ public class SolveSudoku extends Task {
     }
 
     private String getArgForSudoku(int X, int Y, int id) {
+        //Y + X for sudoku class
         return "" + Y + X + id;
     }
 

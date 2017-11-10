@@ -42,7 +42,7 @@ public class TalkToAli extends Task {
 
             api.dialogues.clickContinue();
             Sleep.sleepUntil(() -> (api.dialogues.isPendingOption() ||
-                    api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(100, 300));
+                    api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(200, 600));
 
         } else if (api.dialogues.isPendingOption()) {
 
@@ -50,14 +50,14 @@ public class TalkToAli extends Task {
             Sleep.sleepUntil(() -> (
                     api.getWidgets().get(288, 10) != null ||
                             api.dialogues.isPendingOption() ||
-                            api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(100, 300));
+                            api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(200, 600));
 
         } else {
 
             if (npcAli.isOnScreen() && npcAli.isVisible()) {
 
                 npcAli.interact("Talk-to");
-                Sleep.sleepUntil(() -> (api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(100, 300));
+                Sleep.sleepUntil(() -> (api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(200, 600));
             } else {
 
                 api.camera.toEntity(npcAli);

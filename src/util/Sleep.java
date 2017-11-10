@@ -13,8 +13,8 @@ public final class Sleep extends ConditionalSleep {
         this.condition = condition;
     }
 
-    private Sleep(final BooleanSupplier condition, final int timeout, final int interval) {
-        super(timeout, interval);
+    private Sleep(final BooleanSupplier condition, final int timeout, final int sleeptime) {
+        super(timeout, sleeptime);
         this.condition = condition;
     }
 
@@ -27,8 +27,7 @@ public final class Sleep extends ConditionalSleep {
         return new Sleep(condition, timeout).sleep();
     }
 
-    public static boolean sleepUntil(final BooleanSupplier condition, final int timeout, final int guaranteedSleepTime) {
-        new Sleep(() -> false, guaranteedSleepTime).sleep();
-        return sleepUntil(condition, timeout);
+    public static boolean sleepUntil(final BooleanSupplier condition, final int timeout, final int sleeptime) {
+        return new Sleep(condition, timeout, sleeptime).sleep();
     }
 }

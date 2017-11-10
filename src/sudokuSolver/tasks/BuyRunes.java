@@ -68,13 +68,10 @@ public class BuyRunes extends Task {
 
                             runeWidget.interact("Buy 10");
 
-                            Sleep.sleepUntil(new BooleanSupplier() {
-                                @Override
-                                public boolean getAsBoolean() {
-                                    runeWidget.refresh();
-                                    return runeWidget.getItemAmount() < amountInStore;
-                                }
-                            }, 300, ThreadLocalRandom.current().nextInt(100, 300));
+                            Sleep.sleepUntil(() -> {
+                                runeWidget.refresh();
+                                return runeWidget.getItemAmount() < amountInStore;
+                            }, 500, ThreadLocalRandom.current().nextInt(50, 300));
 
                             int currentStock = runeWidget.getItemAmount();
                             setProfit(rune.getGePrice(), rune.getShopPrice(), (amountInStore - currentStock));
