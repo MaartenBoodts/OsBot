@@ -42,7 +42,7 @@ public class TalkToAli extends Task {
 
             api.dialogues.clickContinue();
             Sleep.sleepUntil(() -> (api.dialogues.isPendingOption() ||
-                    api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(200, 600));
+                    api.dialogues.isPendingContinuation()), 3500, ThreadLocalRandom.current().nextInt(200, 600));
 
         } else if (api.dialogues.isPendingOption()) {
 
