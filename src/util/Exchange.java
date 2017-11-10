@@ -9,9 +9,12 @@ import java.util.HashMap;
 
 public class Exchange {
 
-    private static HashMap<Integer, Integer> cache = new HashMap<Integer, Integer>();
+    private static HashMap<Integer, Integer> cache = new HashMap<>();
 
-    public static String getData(int itemID) {
+    private Exchange() {
+    }
+
+    private static String getData(int itemID) {
         try {
             StringBuilder sb = new StringBuilder("https://api.rsbuddy.com/grandExchange?a=guidePrice&i=");
             sb.append(String.valueOf(itemID));
@@ -32,8 +35,8 @@ public class Exchange {
         return null;
     }
 
-    public static String[] parseData(String data) {
-        ArrayList<String> holder = new ArrayList<String>();
+    private static String[] parseData(String data) {
+        ArrayList<String> holder = new ArrayList<>();
         String[] parts = data.split(","); //Now we have strings in format "x":y
         for (String s : parts) {
             s = s.replace("\"", ""); //Remove " - now in format x:y

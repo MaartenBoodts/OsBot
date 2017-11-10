@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class Sudoku {
 
-    private Sudoku() {
-    }
+    private Sudoku() {}
 
     /**
      * Array of given numbers. #1 is the Y coordinate, #2 is the X coordinate and #3 is the actual number

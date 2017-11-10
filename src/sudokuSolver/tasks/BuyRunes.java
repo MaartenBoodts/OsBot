@@ -10,7 +10,6 @@ import util.Task;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.BooleanSupplier;
 
 public class BuyRunes extends Task {
 
