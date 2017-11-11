@@ -41,16 +41,22 @@ public class TalkToAli extends Task {
         if (api.dialogues.isPendingContinuation()) {
 
             api.dialogues.clickContinue();
+
+            Sleep.sleepUntil(() -> false, ThreadLocalRandom.current().nextInt(500, 700));
+
             Sleep.sleepUntil(() -> (api.dialogues.isPendingOption() ||
-                    api.dialogues.isPendingContinuation()), 3500, ThreadLocalRandom.current().nextInt(200, 600));
+                    api.dialogues.isPendingContinuation()), 3500, ThreadLocalRandom.current().nextInt(500, 700));
 
         } else if (api.dialogues.isPendingOption()) {
 
             api.dialogues.selectOption(chatOptions);
+
+            Sleep.sleepUntil(() -> false, ThreadLocalRandom.current().nextInt(500, 700));
+
             Sleep.sleepUntil(() -> (
                     api.getWidgets().get(288, 10) != null ||
                             api.dialogues.isPendingOption() ||
-                            api.dialogues.isPendingContinuation()), 2500, ThreadLocalRandom.current().nextInt(200, 600));
+                            api.dialogues.isPendingContinuation()), 3500, ThreadLocalRandom.current().nextInt(500, 700));
 
         } else {
 

@@ -12,6 +12,7 @@ import util.Task;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SolveSudoku extends Task {
@@ -21,12 +22,14 @@ public class SolveSudoku extends Task {
 
     private final int rootWidgetId = 288;
     private final int minSleepTime, maxSleepTime;
+    private final boolean randomPlacement;
 
-    public SolveSudoku(MethodProvider api, int minSleepTime, int maxSleepTime) {
+    public SolveSudoku(MethodProvider api, int minSleepTime, int maxSleepTime, boolean randomPlacement) {
         super(api);
 
         this.minSleepTime = minSleepTime;
         this.maxSleepTime = maxSleepTime;
+        this.randomPlacement = randomPlacement;
 
         matrix = new HashMap<>();
         sudokuRunes = new ArrayList<>(Arrays.asList(Rune.FIRE, Rune.WATER, Rune.AIR, Rune.EARTH, Rune.MIND, Rune.BODY, Rune.DEATH, Rune.CHAOS, Rune.LAW));
@@ -48,14 +51,14 @@ public class SolveSudoku extends Task {
 
             if (matrix.containsValue(Rune.UNDEFINED) || runeOnWrongPlace()) {
                 closeSudoku(false);
-                matrix.clear();
             }
 
         } else {
 
             solveSudoku();
 
-            boolean error = runeOnWrongPlace();
+            //boolean error = runeOnWrongPlace();
+            boolean error = false;
 
             if (!error) {
                 BasicInformation.solved++;
@@ -63,8 +66,6 @@ public class SolveSudoku extends Task {
             } else {
                 closeSudoku(false);
             }
-
-            matrix.clear();
         }
     }
 
@@ -82,7 +83,12 @@ public class SolveSudoku extends Task {
                 //We're not checking if rune is selected, but we're sleeping a random time
                 Sleep.sleepUntil(() -> false, maxSleepTime + 1, ThreadLocalRandom.current().nextInt(minSleepTime, maxSleepTime + 1));
 
-                for (Tile tile : Tile.values()) {
+                List<Tile> list = Arrays.asList(Tile.values());
+
+                if (randomPlacement)
+                    Collections.shuffle(list);
+
+                for (Tile tile : list) {
 
                     Rune correctRune = matrix.get(tile);
 
@@ -169,6 +175,8 @@ public class SolveSudoku extends Task {
         } else {
             api.widgets.get(rootWidgetId, 132).interact("Close");
         }
+
+        matrix.clear();
 
         Sleep.sleepUntil(() -> api.getWidgets().get(rootWidgetId, 10) == null, 3000);
     }

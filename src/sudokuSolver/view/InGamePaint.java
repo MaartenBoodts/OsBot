@@ -75,7 +75,7 @@ public class InGamePaint {
         g.drawString("Profit: " + BasicInformation.profit + " (" + profitHr + "/hr)", 555, 415);
         g.setFont(font3);
         g.setColor(color2);
-        g.drawString("Made by RandomInc for OsBot", 568, 443);
+        g.drawString("Made by RandomInc for OsBot", 560, 443);
     }
 
     private String formatTimeToHMS(long timeToFormat) {
